@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator - Premium Edition</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    
+    <main class="container">
+        <!-- Header (Mapping to main.dart concept) -->
+        <header class="fade-in-down">
+            <div class="logo">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <h1>QR Generator</h1>
+            <p>Convert any link or text to QR</p>
+        </header>
+
+        <!-- HomePage (Mapping to pages/home_page.dart) -->
+        <section class="home-page">
+            <!-- InputSection (Mapping to widgets/input_field.dart) -->
+            <div class="input-group fade-in-left">
+                <i class="fas fa-link input-icon"></i>
+                <input type="text" id="qr-input" placeholder="Paste link or type here...">
+            </div>
+
+            <!-- ActionButton (Mapping to widgets/custom_button.dart) -->
+            <div class="action-wrapper fade-in-right">
+                <button id="generate-btn" class="custom-button">
+                    <i class="fas fa-magic"></i>
+                    <span>Generate QR Code</span>
+                </button>
+            </div>
+
+            <!-- QrDisplay (Mapping to widgets/qr_display.dart) -->
+            <div id="qr-result" class="qr-card hidden">
+                <div class="qr-inner">
+                    <div id="qrcode"></div>
+                </div>
+                <p class="qr-hint">Scan this code</p>
+                <p id="display-text" class="qr-data-text"></p>
+                
+                <div class="qr-actions">
+                    <button class="action-btn secondary" id="download-btn">
+                        <i class="fas fa-download"></i> Save
+                    </button>
+                    <button class="action-btn secondary" id="share-btn">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

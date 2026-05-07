@@ -1,0 +1,65 @@
+================================
+PROJECT: QR GENERATOR
+================================
+
+KONSEP APLIKASI
+Aplikasi sederhana namun premium untuk mengubah teks atau link menjadi kode QR secara instan. 
+Fokus pada kemudahan penggunaan dan estetika visual modern (Gen Z Style).
+
+ALUR APLIKASI
+Input Text / Link
+      ↓
+Generate QR
+      ↓
+QR Muncul
+      ↓
+Save / Share
+
+================================
+STRUKTUR FOLDER
+================================
+
+lib/
+│
+├── main.dart
+│
+├── pages/
+│   └── home_page.dart
+│
+├── widgets/
+│   ├── qr_display.dart
+│   ├── custom_button.dart
+│   └── input_field.dart
+│
+├── utils/
+│   └── app_colors.dart
+│
+└── assets/
+    └── images/
+
+================================
+PACKAGE YANG DIGUNAKAN
+================================
+
+dependencies:
+  flutter:
+    sdk: flutter
+  qr_flutter: ^4.1.0
+  google_fonts: ^6.2.1
+  animate_do: ^3.3.4
+  font_awesome_flutter: ^10.7.0
+  
+OPTIONAL PACKAGE (For Save/Share):
+  screenshot: ^3.0.0
+  path_provider: ^2.1.3
+  permission_handler: ^11.3.1
+  share_plus: ^10.1.3
+
+================================
+FITUR UTAMA
+================================
+1. Input Dinamis: Mendukung URL, teks biasa, atau data lainnya.
+2. Real-time Preview: Tampilan QR yang muncul dengan animasi halus.
+3. Premium UI: Menggunakan gradasi warna gelap dan tipografi modern.
+4. Save to Gallery: Menyimpan hasil QR sebagai gambar.
+5. Instant Share: Membagikan hasil QR langsung ke aplikasi lain (Instagram, WhatsApp, dll).

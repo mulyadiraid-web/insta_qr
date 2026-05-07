@@ -1,0 +1,212 @@
+/* Mapping to utils/app_colors.dart */
+:root {
+    --primary: #00B4DB;
+    --secondary: #0083B0;
+    --bg-start: #0F2027;
+    --bg-mid: #203A43;
+    --bg-end: #2C5364;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-hint: rgba(255, 255, 255, 0.38);
+    --surface: rgba(255, 255, 255, 0.1);
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background: var(--bg-start);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end));
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 48px;
+}
+
+.logo {
+    font-size: 64px;
+    color: var(--primary);
+    margin-bottom: 16px;
+    text-shadow: 0 0 20px rgba(0, 180, 219, 0.5);
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+/* InputField Widget */
+.input-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+input {
+    width: 100%;
+    padding: 18px 18px 18px 48px;
+    background: var(--surface);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* CustomButton Widget */
+.custom-button {
+    width: 100%;
+    height: 60px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 24px rgba(0, 180, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 180, 219, 0.4);
+}
+
+.custom-button:active {
+    transform: translateY(0);
+}
+
+/* QrDisplay Widget */
+.qr-card {
+    margin-top: 48px;
+    background: var(--card-bg);
+    padding: 32px;
+    border-radius: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    color: #000;
+}
+
+.qr-inner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.qr-hint {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.qr-data-text {
+    font-weight: 700;
+    font-size: 14px;
+    word-break: break-all;
+    margin-bottom: 32px;
+}
+
+.qr-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: #f8f8f8;
+    border-color: #bbb;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-down { animation: fadeInDown 0.8s ease-out; }
+.fade-in-left { animation: fadeInLeft 0.8s ease-out; }
+.fade-in-right { animation: fadeInRight 0.8s ease-out; }
+.fade-in-up { animation: fadeInUp 0.8s ease-out; }
