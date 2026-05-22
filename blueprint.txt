@@ -1,19 +1,25 @@
 ================================
-PROJECT: QR GENERATOR
+PROJECT: INSTA QRIS (PREMIUM PAYMENT & QRIS MANAGEMENT APP)
 ================================
 
 KONSEP APLIKASI
-Aplikasi sederhana namun premium untuk mengubah teks atau link menjadi kode QR secara instan. 
-Fokus pada kemudahan penggunaan dan estetika visual modern (Gen Z Style).
+Insta QRIS adalah aplikasi mobile premium dan modern (Gen Z Style) yang dirancang untuk mempermudah pembuatan, pemindaian, dan pencatatan transaksi QRIS. Aplikasi ini memadukan estetika visual futuristik (dark mode, neon glow, glassmorphism) dengan fungsionalitas pengelolaan keuangan dan transaksi harian secara instan.
 
 ALUR APLIKASI
-Input Text / Link
+Dashboard (Overview Balance/Income & Quick Actions)
       ↓
-Generate QR
-      ↓
-QR Muncul
-      ↓
-Save / Share
+┌─────┼────────────────────────┐
+│     ↓                        ↓
+Scan QRIS                 Generate QRIS
+(Camera Scanner)        (Merchant & Amount)
+      │                        │
+      ↓                        ↓
+Show Receipt / Detail    QRIS Code Created
+      │                        │
+      └───────┬────────────────┘
+              ↓
+      Transaction History
+      (Log Transaksi & Filter)
 
 ================================
 STRUKTUR FOLDER
@@ -24,15 +30,25 @@ lib/
 ├── main.dart
 │
 ├── pages/
-│   └── home_page.dart
+│   ├── dashboard_page.dart
+│   ├── qris_generator_page.dart
+│   ├── qris_scanner_page.dart
+│   └── transaction_history_page.dart
 │
 ├── widgets/
-│   ├── qr_display.dart
 │   ├── custom_button.dart
-│   └── input_field.dart
+│   ├── custom_card.dart
+│   ├── input_field.dart
+│   ├── qr_display.dart
+│   └── transaction_tile.dart
 │
 ├── utils/
-│   └── app_colors.dart
+│   ├── app_colors.dart
+│   ├── qris_parser.dart
+│   ├── qr_saver.dart
+│   ├── qr_saver_stub.dart
+│   ├── qr_saver_web.dart
+│   └── qr_saver_mobile.dart
 │
 └── assets/
     └── images/
@@ -48,18 +64,18 @@ dependencies:
   google_fonts: ^6.2.1
   animate_do: ^3.3.4
   font_awesome_flutter: ^10.7.0
-  
-OPTIONAL PACKAGE (For Save/Share):
+  mobile_scanner: ^5.1.1
+  intl: ^0.19.0
   screenshot: ^3.0.0
-  path_provider: ^2.1.3
-  permission_handler: ^11.3.1
   share_plus: ^10.1.3
+  permission_handler: ^11.3.1
+  path_provider: ^2.1.3
 
 ================================
 FITUR UTAMA
 ================================
-1. Input Dinamis: Mendukung URL, teks biasa, atau data lainnya.
-2. Real-time Preview: Tampilan QR yang muncul dengan animasi halus.
-3. Premium UI: Menggunakan gradasi warna gelap dan tipografi modern.
-4. Save to Gallery: Menyimpan hasil QR sebagai gambar.
-5. Instant Share: Membagikan hasil QR langsung ke aplikasi lain (Instagram, WhatsApp, dll).
+1. Dashboard Keuangan: Melacak total saldo, pemasukan/pengeluaran, visualisasi statistik ringkas, dan shortcut akses cepat.
+2. Pembuat QRIS Dinamis (Generator): Memasukkan nama merchant, ID transaksi, nominal uang (IDR), lalu meng-generate QRIS code secara instan yang dapat disimpan (Save) atau dibagikan (Share).
+3. Pemindai QRIS (Scanner): Membuka kamera perangkat secara real-time untuk memindai kode QRIS, mendeteksi isi data, dan memproses ke halaman detail pembayaran.
+4. Riwayat Transaksi (History): Menampilkan daftar transaksi masuk dan keluar secara lengkap dengan status (Success, Pending, Failed), pencarian, dan penyaringan (filter).
+5. Premium & Dynamic UI: Tema gelap futuristik, gradasi warna neon (Cyan/Purple/Orange), efek glassmorphism, tipografi modern (Outfit), serta micro-animation interaktif.

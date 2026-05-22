@@ -1,9 +1,23 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runZoned(
+    () {
+      runApp(const MyApp());
+    },
+    zoneSpecification: ZoneSpecification(
+      print: (Zone self, ZoneDelegate parent, Zone zone, String line) {
+        if (line.trim().startsWith('animate:')) {
+          // Suppress animate: true print statements
+          return;
+        }
+        parent.print(zone, line);
+      },
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
